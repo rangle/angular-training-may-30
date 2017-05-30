@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
 import { HeadingDirective } from './heading.directive';
 import { TextDirective } from './text.directive';
+import { LikeComponent } from './like/like.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
     HeadingDirective,
-    TextDirective
+    TextDirective,
+    LikeComponent
   ],
   imports: [
     BrowserModule,

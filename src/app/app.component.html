@@ -7,6 +7,13 @@
     [body]="post.body"
     [author]="post.author"
     [date]="post.date"
+    [likeCount]="post.likeCount"
   >
+    <app-like
+      [likeCount]="post.likeCount"
+      (click)="updateLike(post.id)">
+    </app-like>
+
+    {{ post.likeCount }}
   </app-post>
 </section>

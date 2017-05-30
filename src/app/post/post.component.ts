@@ -11,10 +11,15 @@ export class PostComponent implements OnInit {
   @Input() body: string;
   @Input() author: string;
   @Input() date: Date;
+  @Input() likeCount: number;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  updateLike() {
+    this.likeCount++;
   }
 
 }
