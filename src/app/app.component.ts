@@ -6,22 +6,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
-  count = 0;
-  posts = [
-    'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    ' Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-  ]
+
+  posts = [{
+    title: 'Tech Giant Invests Huge Money to Build a Computer Out of Science Fiction',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quis error, a aliquid porro quia sint eaque laboriosam itaque perspiciatis officia sunt dicta, eius esse deleniti? Sapiente dolore, asperiores sint.',
+    author: 'robin darnell',
+    date: new Date(),
+  }, {
+    title: 'Tech Giant Invests Huge Money to Build a Computer Out of Science Fiction',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quis error, a aliquid porro quia sint eaque laboriosam itaque perspiciatis officia sunt dicta, eius esse deleniti? Sapiente dolore, asperiores sint.',
+    author: 'robin darnell',
+    date: new Date(),
+  }, {
+    title: 'Tech Giant Invests Huge Money to Build a Computer Out of Science Fiction',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quis error, a aliquid porro quia sint eaque laboriosam itaque perspiciatis officia sunt dicta, eius esse deleniti? Sapiente dolore, asperiores sint.',
+    author: 'robin darnell',
+    date: new Date(),
+  }];
 
   constructor() {
-    setTimeout(() => {
-      this.posts = [
-        'dslfjgkdf',
-        'sdfgsfdg',
-        'dsfgdfg',
-        'im ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-      ];
-    }, 2000);
   }
 }
