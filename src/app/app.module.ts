@@ -8,6 +8,8 @@ import { PostComponent } from './post/post.component';
 import { HeadingDirective } from './heading.directive';
 import { TextDirective } from './text.directive';
 import { LikeComponent } from './like/like.component';
+import { PostsListComponent } from './posts-list/posts-list.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { LikeComponent } from './like/like.component';
     PostComponent,
     HeadingDirective,
     TextDirective,
-    LikeComponent
+    LikeComponent,
+    PostsListComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+<app-searchbar
+  [(query)]="query">
+</app-searchbar>
+
+<app-post
+  *ngFor="let post of posts"
+  [title]="post.title"
+  [body]="post.body"
+  [author]="post.author"
+  [date]="post.date"
+  [likeCount]="post.likeCount"
+>
+  <app-like
+    [likeCount]="post.likeCount"
+    (click)="updateLike(post.id)">
+  </app-like>
+
+  {{ post.likeCount }}
+</app-post>
