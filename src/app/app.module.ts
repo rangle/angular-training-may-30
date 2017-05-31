@@ -11,6 +11,7 @@ import { LikeComponent } from './like/like.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ExcerptPipe } from './excerpt.pipe';
+import { PostsService } from './posts/posts.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ExcerptPipe } from './excerpt.pipe';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

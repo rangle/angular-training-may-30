@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostsService } from '../posts/posts.service';
 
 @Component({
   selector: 'app-posts-list',
@@ -9,30 +10,34 @@ export class PostsListComponent implements OnInit {
 
   query: string = 'this is the search query';
 
-  posts = [{
-    id: 1,
-    title: 'Tech Giant Invests Huge Money to Build a Computer Out of Science Fiction',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quis error, a aliquid porro quia sint eaque laboriosam itaque perspiciatis officia sunt dicta, eius esse deleniti? Sapiente dolore, asperiores sint.',
-    author: 'robin darnell',
-    date: new Date(),
-    likeCount: 3,
-  }, {
-    id: 2,
-    title: 'Tech Giant Invests Huge Money to Build a Computer Out of Science Fiction',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quis error, a aliquid porro quia sint eaque laboriosam itaque perspiciatis officia sunt dicta, eius esse deleniti? Sapiente dolore, asperiores sint.',
-    author: 'robin darnell',
-    date: new Date(),
-    likeCount: 0,
-  }, {
-    id: 3,
-    title: 'Tech Giant Invests Huge Money to Build a Computer Out of Science Fiction',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quis error, a aliquid porro quia sint eaque laboriosam itaque perspiciatis officia sunt dicta, eius esse deleniti? Sapiente dolore, asperiores sint.',
-    author: 'robin darnell',
-    date: new Date(),
-    likeCount: 0,
-  }];
+  posts = [
+    {
+      id: 1,
+      title: 'Tech Giant Invests Huge Money to Build a Computer Out of Science Fiction',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quis error, a aliquid porro quia sint eaque laboriosam itaque perspiciatis officia sunt dicta, eius esse deleniti? Sapiente dolore, asperiores sint.',
+      author: 'robin darnell',
+      date: new Date(),
+      likeCount: 3,
+    },
+    {
+      id: 2,
+      title: 'Tech Giant Invests Huge Money to Build a Computer Out of Science Fiction',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quis error, a aliquid porro quia sint eaque laboriosam itaque perspiciatis officia sunt dicta, eius esse deleniti? Sapiente dolore, asperiores sint.',
+      author: 'robin darnell',
+      date: new Date(),
+      likeCount: 0,
+    },
+    {
+      id: 3,
+      title: 'Tech Giant Invests Huge Money to Build a Computer Out of Science Fiction',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quis error, a aliquid porro quia sint eaque laboriosam itaque perspiciatis officia sunt dicta, eius esse deleniti? Sapiente dolore, asperiores sint.',
+      author: 'robin darnell',
+      date: new Date(),
+      likeCount: 0,
+    }
+  ];
 
-  constructor() { }
+  constructor(private postsService: PostsService) {}
 
   ngOnInit() {
   }
