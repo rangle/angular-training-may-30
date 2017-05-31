@@ -10,10 +10,11 @@
   [date]="post.date"
   [likeCount]="post.likeCount"
 >
-  <app-like
-    [likeCount]="post.likeCount"
-    (click)="updateLike(post.id)">
-  </app-like>
-
-  {{ post.likeCount }}
+  <div class="inline-flex items-center mt3 lh-solid bg-washed-red pa1 br1">
+    <app-like
+      [likeCount]="post.likeCount"
+      (click)="updateLike(post.id)">
+    </app-like>
+    {{ post.likeCount }}
+  </div>
 </app-post>

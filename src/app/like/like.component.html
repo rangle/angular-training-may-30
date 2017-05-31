@@ -1,7 +1,8 @@
 <svg viewBox="0 0 20 20"
-  class="f1"
-  [ngStyle]="{
-    'color': likeCount > 0 ? 'red' : 'gray'
+  class="f4 dib mr1 pointer"
+  [ngClass]="{
+    'red': likeCount > 0,
+    'gray': likeCount === 0
   }"
   width="1em" height="1em">
   <path fill="currentColor"

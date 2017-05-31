@@ -1,27 +1,27 @@
 <article class="pv4 bt bb b--black-10 ph3 ph0-l">
 
   <div>
-    <!-- Heading -->
     <h2 appHeading class="f3">
       {{ title }}
     </h2>
 
-    <!-- Text -->
     <p class="f5 f4-l" appText>
       {{ body }}
     </p>
   </div>
 
-  <!-- Text -->
-  <p class="f6 gray mv0" appText>
-    By <span class="ttu">{{ author }}</span>
-  </p>
+  <div class="flex">
+    <div class="flex-auto">
+      <p class="f6 gray mv0" appText>
+        By <span class="ttu">{{ author }}</span>
+      </p>
 
-  <!-- Text -->
-  <time class="f6 db gray" datetime="" appText>
-    {{ date }}
-  </time>
+      <time class="f6 db gray" datetime="" appText>
+        {{ date }}
+      </time>
+    </div>
 
-  <ng-content></ng-content>
+    <ng-content></ng-content>
+  </div>
 
 </article>
