@@ -5,12 +5,13 @@ import { ApiService } from '../api/api.service';
 @Injectable()
 export class PostsService {
 
-  stateSubject = new BehaviorSubject({
+  private stateSubject = new BehaviorSubject({
     posts: []
   });
 
-  state$ = this.stateSubject.asObservable();
-  posts$ = this.state$.pluck('posts');
+  public state$ =
+    this.stateSubject.publishReplay(1).refCount();
+  public posts$ = this.state$.pluck('posts');
 
   constructor(private apiService: ApiService) { }
 
