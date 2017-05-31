@@ -6,7 +6,7 @@
     </h2>
 
     <p class="f5 f4-l" appText>
-      {{ body }}
+      {{ body | excerpt:15:',' }}
     </p>
   </div>
 
@@ -17,7 +17,7 @@
       </p>
 
       <time class="f6 db gray" datetime="" appText>
-        {{ date }}
+        {{ date | date:'fullDate' }}
       </time>
     </div>
 

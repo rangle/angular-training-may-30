@@ -10,6 +10,7 @@ import { TextDirective } from './text.directive';
 import { LikeComponent } from './like/like.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { ExcerptPipe } from './excerpt.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     TextDirective,
     LikeComponent,
     PostsListComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    ExcerptPipe
   ],
   imports: [
     BrowserModule,
