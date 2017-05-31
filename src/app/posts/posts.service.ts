@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { ApiService } from '../api/api.service';
 
 @Injectable()
 export class PostsService {
@@ -11,37 +12,22 @@ export class PostsService {
   state$ = this.stateSubject.asObservable();
   posts$ = this.state$.pluck('posts');
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   getPosts() {
-    this.stateSubject.next({
-      posts: [
-        {
-          id: 1,
-          title: 'Tech Giant Invests Huge Money to Build a Computer Out of Science Fiction',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quis error, a aliquid porro quia sint eaque laboriosam itaque perspiciatis officia sunt dicta, eius esse deleniti? Sapiente dolore, asperiores sint.',
-          author: 'robin darnell',
-          date: new Date(),
-          likeCount: 3,
-        },
-        {
-          id: 2,
-          title: 'Tech Giant Invests Huge Money to Build a Computer Out of Science Fiction',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quis error, a aliquid porro quia sint eaque laboriosam itaque perspiciatis officia sunt dicta, eius esse deleniti? Sapiente dolore, asperiores sint.',
-          author: 'robin darnell',
-          date: new Date(),
-          likeCount: 0,
-        },
-        {
-          id: 3,
-          title: 'Tech Giant Invests Huge Money to Build a Computer Out of Science Fiction',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quis error, a aliquid porro quia sint eaque laboriosam itaque perspiciatis officia sunt dicta, eius esse deleniti? Sapiente dolore, asperiores sint.',
-          author: 'robin darnell',
-          date: new Date(),
-          likeCount: 0,
-        }
-      ],
-    });
+    this.apiService.get('/posts')
+      .map(posts => this.normalizePosts(posts))
+      .subscribe(posts => {
+        this.stateSubject.next({ posts });
+      });
+  }
+
+  normalizePosts(posts) {
+    return posts.map(post => Object.assign({}, post, {
+      author: 'katherine grant',
+      date: new Date(),
+      likeCount: 0,
+    }));
   }
 
   updateLike(id: number) {

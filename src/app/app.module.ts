@@ -12,6 +12,7 @@ import { PostsListComponent } from './posts-list/posts-list.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ExcerptPipe } from './excerpt.pipe';
 import { PostsService } from './posts/posts.service';
+import { ApiService } from './api/api.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { PostsService } from './posts/posts.service';
     FormsModule,
     HttpModule
   ],
-  providers: [PostsService],
+  providers: [PostsService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
