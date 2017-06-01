@@ -16,8 +16,8 @@ export class SearchbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  updateQuery() {
-    this.queryChange.next(this.query);
+  updateQuery(value) {
+    this.queryChange.next(value);
   }
 
 }

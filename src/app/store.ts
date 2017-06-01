@@ -9,7 +9,7 @@ import { NgRedux } from '@angular-redux/store';
 import { createLogger } from 'redux-logger';
 
 import { postsReducer } from './posts';
-import { uiReducer } from './ui.reducer';
+import { uiReducer } from './ui';
 
 export interface IAppState {
   posts: any;

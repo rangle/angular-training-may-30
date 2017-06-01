@@ -1,6 +1,25 @@
-<input
-  type="text"
-  class="ma4"
-  [(ngModel)]="query"
-  (change)="updateQuery()"
-/>
+<form #searchForm="ngForm"
+  class="bg-light-red mw7 center pa4 br2-ns ba b--black-10"
+  novalidate
+  (ngSubmit)="updateQuery(queryControl.value)">
+
+  <fieldset class="cf bn ma0 pa0 black-80">
+
+    <legend class="pa0 f5 mb3">Search for blog posts</legend>
+
+    <div class="flex">
+      <input class="f5 input-reset bn bg-white pa3 lh-solid w-100 flex-auto br2 br--left"
+        type="text"
+        name="query"
+        #queryControl="ngModel"
+        [ngModel]="query"
+        (keyup)="updateQuery(queryControl.value)">
+
+      <input class="f5 button-reset pv3 tc bn bg-animate bg-black-70 hover-bg-black white pointer w4 br2 br--right"
+        type="submit"
+        value="Search">
+    </div>
+
+  </fieldset>
+
+</form>

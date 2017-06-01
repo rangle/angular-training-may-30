@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { select } from '@angular-redux/store';
 
-import { PostsActions } from '../posts/posts.actions';
-import { PostsSelector } from '../posts/posts.selector';
+import { PostsActions, PostsSelector } from '../posts';
+import { UiActions } from '../ui';
 
 
 @Component({
@@ -10,10 +11,11 @@ import { PostsSelector } from '../posts/posts.selector';
   styleUrls: ['./posts-list.component.css']
 })
 export class PostsListComponent implements OnInit {
-  query: string = 'this is the search query';
+  @select(['ui', 'query']) query$;
 
   constructor(
     private postsActions: PostsActions,
+    private uiActions: UiActions,
     private postsSelector: PostsSelector,
   ) {}
 

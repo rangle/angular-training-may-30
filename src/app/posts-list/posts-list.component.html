@@ -1,9 +1,9 @@
 <app-searchbar
-  [(query)]="query">
+  [query]="query$ | async" (queryChange)="uiActions.updateQuery($event)">
 </app-searchbar>
 
 <app-post
-  *ngFor="let post of postsSelector.posts$ | async"
+  *ngFor="let post of postsSelector.filteredPosts$ | async"
   [title]="post.title"
   [body]="post.body"
   [author]="post.author"
@@ -12,9 +12,11 @@
 >
   <div class="inline-flex items-center mt3 lh-solid bg-washed-red pa1 br1">
     <app-like
+      #likeComponent
       [likeCount]="post.likeCount"
       (click)="postsActions.updateLike(post)">
     </app-like>
+
     {{ post.likeCount }}
   </div>
 </app-post>

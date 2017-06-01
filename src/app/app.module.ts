@@ -19,6 +19,7 @@ import {
   PostsService,
   PostsSelector,
 } from './posts';
+import { UiActions } from './ui';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {
     ApiService,
     PostsActions,
     PostsSelector,
+    UiActions,
   ],
   bootstrap: [AppComponent]
 })
