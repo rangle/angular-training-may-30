@@ -1,9 +1,12 @@
 <article class="pv4 bt bb b--black-10 ph3 ph0-l">
 
   <div>
-    <h2 appHeading class="f3">
-      {{ title }}
-    </h2>
+    <a [routerLink]="['/posts', id]"
+      class="link dark-gray">
+      <h2 appHeading class="f3">
+        {{ title }}
+      </h2>
+    </a>
 
     <p class="f5 f4-l" appText>
       {{ body | excerpt:15:',' }}

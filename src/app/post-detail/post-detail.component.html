@@ -1,0 +1,27 @@
+<div *ngIf="!post" class="ph3">
+  <div class="bg-gray h2 mb3"></div>
+
+  <div class="bg-gray h1 mb1"></div>
+  <div class="bg-gray h1 mb1"></div>
+  <div class="bg-gray h1 mb1"></div>
+</div>
+
+<div *ngIf="post">
+  <app-post
+    [id]="post.id"
+    [title]="post.title"
+    [body]="post.body"
+    [author]="post.author"
+    [date]="post.date"
+    [likeCount]="post.likeCount"
+  >
+    <div class="inline-flex items-center mt3 lh-solid bg-washed-red pa1 br1">
+      <app-like
+        [likeCount]="post.likeCount"
+        (click)="postsActions.updateLike(post)">
+      </app-like>
+
+      {{ post.likeCount }}
+    </div>
+  </app-post>
+</div>

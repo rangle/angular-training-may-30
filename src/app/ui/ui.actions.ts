@@ -7,13 +7,21 @@ import { IAppState } from '../store';
 export class UiActions {
   static readonly UI = {
     UPDATE_QUERY: 'angularTraining/Ui/UPDATE_QUERY',
+    UPDATE_ACTIVE_POST_ID: 'angularTraining/Ui/UPDATE_ACTIVE_POST_ID',
   };
 
   @dispatch()
   updateQuery(value)  {
-    console.log(value);
     return {
       type: UiActions.UI.UPDATE_QUERY,
+      payload: value,
+    };
+  }
+
+  @dispatch()
+  updateActivePostId(value)  {
+    return {
+      type: UiActions.UI.UPDATE_ACTIVE_POST_ID,
       payload: value,
     };
   }

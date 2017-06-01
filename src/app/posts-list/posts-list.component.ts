@@ -20,6 +20,5 @@ export class PostsListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.postsActions.fetch();
   }
 }

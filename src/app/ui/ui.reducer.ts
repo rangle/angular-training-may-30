@@ -3,9 +3,10 @@ import { UiActions } from './ui.actions';
 
 interface IUiReducer {
   query: string;
+  activePostId: number;
 }
 
-const initialState = { query: '' };
+const initialState = { query: '', activePostId: null };
 
 export const uiReducer: Reducer<IUiReducer> = (
   state = initialState,
@@ -14,6 +15,9 @@ export const uiReducer: Reducer<IUiReducer> = (
   switch (action.type) {
     case UiActions.UI.UPDATE_QUERY:
       return { ...state, query: action.payload };
+
+    case UiActions.UI.UPDATE_ACTIVE_POST_ID:
+      return { ...state, activePostId: action.payload };
 
     default:
       return state;

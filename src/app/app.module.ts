@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgReduxModule, NgRedux } from '@angular-redux/store';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
@@ -20,6 +21,8 @@ import {
   PostsSelector,
 } from './posts';
 import { UiActions } from './ui';
+import { routeConfig } from './app.routes';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +33,15 @@ import { UiActions } from './ui';
     LikeComponent,
     PostsListComponent,
     SearchbarComponent,
-    ExcerptPipe
+    ExcerptPipe,
+    PostDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgReduxModule
+    NgReduxModule,
+    RouterModule.forRoot(routeConfig),
   ],
   providers: [
     PostsService,
