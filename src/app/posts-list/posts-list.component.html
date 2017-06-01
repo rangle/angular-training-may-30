@@ -3,7 +3,7 @@
 </app-searchbar>
 
 <app-post
-  *ngFor="let post of postsService.posts$ | async"
+  *ngFor="let post of posts$ | async"
   [title]="post.title"
   [body]="post.body"
   [author]="post.author"
@@ -13,7 +13,7 @@
   <div class="inline-flex items-center mt3 lh-solid bg-washed-red pa1 br1">
     <app-like
       [likeCount]="post.likeCount"
-      (click)="postsService.updateLike(post.id)">
+      (click)="postsActions.updateLike(post)">
     </app-like>
     {{ post.likeCount }}
   </div>

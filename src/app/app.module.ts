@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { NgReduxModule, NgRedux } from '@angular-redux/store';
 
 import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
@@ -13,6 +14,8 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ExcerptPipe } from './excerpt.pipe';
 import { PostsService } from './posts/posts.service';
 import { ApiService } from './api/api.service';
+import { store, IAppState } from './store';
+import { PostsActions } from './posts.actions';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,14 @@ import { ApiService } from './api/api.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgReduxModule
   ],
-  providers: [PostsService, ApiService],
+  providers: [PostsService, ApiService, PostsActions],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(ngRedux: NgRedux<IAppState>) {
+    ngRedux.provideStore(store);
+  }
+}
