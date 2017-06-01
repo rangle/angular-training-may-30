@@ -24,4 +24,20 @@
       {{ post.likeCount }}
     </div>
   </app-post>
+
+</div>
+
+<nav class="tc mw7 center mt4">
+  <a class="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l"
+    [routerLink]="['comments']">
+    Comments
+  </a>
+  <a class="f6 f5-l link bg-animate black-80 hover-bg-light-yellow dib pa3 ph4-l"
+    [routerLink]="['related']">
+    Related
+  </a>
+</nav>
+
+<div class="ba b--moon-gray pa3 ma3">
+  <router-outlet></router-outlet>
 </div>

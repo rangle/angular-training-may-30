@@ -22,7 +22,11 @@ import {
 } from './posts';
 import { UiActions } from './ui';
 import { routeConfig } from './app.routes';
-import { PostDetailComponent } from './post-detail/post-detail.component';
+import {
+  PostDetailComponent,
+  CommentsComponent,
+  RelatedComponent,
+} from './post-detail';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,9 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
     PostsListComponent,
     SearchbarComponent,
     ExcerptPipe,
-    PostDetailComponent
+    PostDetailComponent,
+    CommentsComponent,
+    RelatedComponent
   ],
   imports: [
     BrowserModule,

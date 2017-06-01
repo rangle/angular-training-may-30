@@ -6,7 +6,7 @@
   *ngFor="let post of postsSelector.filteredPosts$ | async"
   [id]="post.id"
   [title]="post.title"
-  [body]="post.body"
+  [body]="post.body | excerpt:15:','"
   [author]="post.author"
   [date]="post.date"
   [likeCount]="post.likeCount"
