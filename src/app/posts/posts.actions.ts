@@ -10,6 +10,7 @@ export class PostsActions {
   static readonly POSTS = {
     FETCH: 'angularTraining/Posts/FETCH',
     UPDATE: 'angularTraining/Posts/UPDATE',
+    FETCH_FAILED: 'angularTraining/Posts/FETCH_FAILED',
   };
 
   constructor(
@@ -19,12 +20,20 @@ export class PostsActions {
 
   fetch() {
     this.postsService.getPosts()
-      .subscribe(posts => {
-        this.ngRedux.dispatch({
-          type: PostsActions.POSTS.FETCH,
-          payload: posts,
-        });
-      });
+      .subscribe(
+        posts => {
+          this.ngRedux.dispatch({
+            type: PostsActions.POSTS.FETCH,
+            payload: posts,
+          });
+        },
+        error => {
+          this.ngRedux.dispatch({
+            type: PostsActions.POSTS.FETCH_FAILED,
+            payload: error,
+          });
+        }
+      );
   }
 
   @dispatch()

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { select } from '@angular-redux/store';
 
 import { PostsActions } from '../posts/posts.actions';
+import { PostsSelector } from '../posts/posts.selector';
 
 
 @Component({
@@ -11,9 +11,11 @@ import { PostsActions } from '../posts/posts.actions';
 })
 export class PostsListComponent implements OnInit {
   query: string = 'this is the search query';
-  @select(['posts', 'all']) posts$;
 
-  constructor(private postsActions: PostsActions) {}
+  constructor(
+    private postsActions: PostsActions,
+    private postsSelector: PostsSelector,
+  ) {}
 
   ngOnInit() {
     this.postsActions.fetch();

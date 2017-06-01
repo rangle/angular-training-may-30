@@ -16,6 +16,18 @@ export interface IAppState {
   ui: any;
 };
 
+const middleware = [createLogger()];
+
+const composeEnhancers =
+  typeof window === 'object' &&
+  window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] ?
+    window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__']({}) : compose;
+
+const enhancer = composeEnhancers(
+  applyMiddleware(...middleware),
+  // other store enhancers if any
+);
+
 const rootReducer = combineReducers<IAppState>({
   posts: postsReducer,
   ui: uiReducer,
@@ -23,5 +35,5 @@ const rootReducer = combineReducers<IAppState>({
 
 export const store: Store<IAppState> = createStore(
   rootReducer,
-  applyMiddleware(createLogger())
+  enhancer
 );

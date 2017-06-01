@@ -17,6 +17,7 @@ import { store, IAppState } from './store';
 import {
   PostsActions,
   PostsService,
+  PostsSelector,
 } from './posts';
 
 @NgModule({
@@ -36,7 +37,12 @@ import {
     HttpModule,
     NgReduxModule
   ],
-  providers: [PostsService, ApiService, PostsActions],
+  providers: [
+    PostsService,
+    ApiService,
+    PostsActions,
+    PostsSelector,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

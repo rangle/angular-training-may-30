@@ -3,7 +3,7 @@
 </app-searchbar>
 
 <app-post
-  *ngFor="let post of posts$ | async"
+  *ngFor="let post of postsSelector.posts$ | async"
   [title]="post.title"
   [body]="post.body"
   [author]="post.author"
