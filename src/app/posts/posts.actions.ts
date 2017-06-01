@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Action } from 'redux';
 import { NgRedux, dispatch } from '@angular-redux/store';
 
-import { PostsService } from './posts/posts.service';
-import { IAppState } from './store';
+import { PostsService } from './posts.service';
+import { IAppState } from '../store';
 
 @Injectable()
 export class PostsActions {

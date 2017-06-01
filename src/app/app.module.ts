@@ -12,10 +12,12 @@ import { LikeComponent } from './like/like.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ExcerptPipe } from './excerpt.pipe';
-import { PostsService } from './posts/posts.service';
 import { ApiService } from './api/api.service';
 import { store, IAppState } from './store';
-import { PostsActions } from './posts.actions';
+import {
+  PostsActions,
+  PostsService,
+} from './posts';
 
 @NgModule({
   declarations: [

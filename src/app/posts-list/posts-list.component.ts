@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { select } from '@angular-redux/store';
 
-import { PostsActions } from '../posts.actions';
+import { PostsActions } from '../posts/posts.actions';
 
 
 @Component({
