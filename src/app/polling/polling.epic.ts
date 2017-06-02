@@ -16,11 +16,6 @@ const handleError = e => Observable.of({
   payload: e,
 });
 
-const getComments = () =>
-  this.apiService.get('/comments')
-    .map(updateComments)
-    .catch(handleError);
-
 @Injectable()
 export class PollingEpic {
   constructor(
@@ -31,13 +26,19 @@ export class PollingEpic {
     return createEpicMiddleware(this.createPollingEpic());
   }
 
+  getComments() {
+    return this.apiService.get('/comments')
+      .map(updateComments)
+      .catch(handleError);
+  }
+
   private createPollingEpic() {
     return action$ => action$
       .ofType(PollingActions.POLLING.START)
       .switchMap(({ payload = 1000 }) =>
         Observable.interval(payload)
           .takeUntil(action$.ofType(PollingActions.POLLING.STOP))
-          .mergeMap(getComments)
+          .mergeMap(() => this.getComments())
       );
   }
 }
