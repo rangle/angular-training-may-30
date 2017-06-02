@@ -8,7 +8,7 @@ export class ExcerptPipe implements PipeTransform {
   transform(
     value: any,
     wordCount: number = 20,
-    specialChar?:string
+    specialChar?: string
   ): any {
 
     const excertpValue = value.split(' ')

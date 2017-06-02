@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { PostsSelectorService } from './posts-selector.service';
+import { PostsSelector } from './posts.selector';
 
 describe('PostsSelectorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PostsSelectorService]
+      providers: [PostsSelector]
     });
   });
 
-  it('should be created', inject([PostsSelectorService], (service: PostsSelectorService) => {
+  it('should be created', inject([PostsSelector], (service: PostsSelector) => {
     expect(service).toBeTruthy();
   }));
 });
