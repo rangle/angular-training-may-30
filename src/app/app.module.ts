@@ -14,7 +14,6 @@ import { PostsListComponent } from './posts-list/posts-list.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { ExcerptPipe } from './excerpt.pipe';
 import { ApiService } from './api/api.service';
-import { store, IAppState } from './store';
 import {
   PostsActions,
   PostsService,
@@ -27,6 +26,8 @@ import {
   CommentsComponent,
   RelatedComponent,
 } from './post-detail';
+import { StoreModule, IAppState } from './store/store.module';
+import { PollingModule } from './polling';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,8 @@ import {
     HttpModule,
     NgReduxModule,
     RouterModule.forRoot(routeConfig),
+    PollingModule,
+    StoreModule,
   ],
   providers: [
     PostsService,
@@ -59,7 +62,4 @@ import {
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(ngRedux: NgRedux<IAppState>) {
-    ngRedux.provideStore(store);
-  }
 }

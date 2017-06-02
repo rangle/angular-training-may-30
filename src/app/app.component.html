@@ -1,5 +1,11 @@
 <section class="mw7 center ph3">
   <h1 appHeading class="f3">My Blog</h1>
 
+  <div class="ba b--moon-gray pa3 mb3">
+    <button (click)="pollingActions.stop()">
+      Stop Polling
+    </button>
+  </div>
+
   <router-outlet></router-outlet>
 </section>
